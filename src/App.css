@@ -1,0 +1,33 @@
+:root {
+  --bg-color: #1e1e1e;
+  --sub-color: #4d4d4d;
+  --text-color: #d4d4d4;
+  --incorrect-letter-color: #f44747;
+
+  --header-height: 104px;
+  --footer-height: 104px;
+  --main-height: calc(100vh - var(--header-height) - var(--footer-height));
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--sub-color);
+  height: 100vh;
+}
+
+.active {
+  position: relative; /* This is important to position ::after relative to .active */
+  display: inline-block; /* Ensures the element only takes up as much space as needed */
+}
+
+.active::after {
+  content: '';
+  position: absolute;
+  top: 100%; /* Position the underline just below the element */
+  left: 50%; /* Start from the center */
+  transform: translateX(-50%); /* Shift the underline to be centered */
+  width: 110%; /* Make the underline span the entire width of the element */
+  height: 4px; /* Set the thickness of the underline */
+  background-color: rebeccapurple; /* Underline color */
+  border-radius: 99999999px;
+}
